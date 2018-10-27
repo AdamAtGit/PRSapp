@@ -95,13 +95,69 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomHelperClasses\CondenseDay.cs" />
+    <Compile Include="CustomHelperClasses\TimeFormatNCompare.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\ContentLists.cs" />
     <Compile Include="Models\M_Content.cs" />
+    <Compile Include="Models\M_CreateTTS.cs" />
     <Compile Include="Models\M_Speech.cs" />
+    <Compile Include="Models\M_Users.cs" />
+    <Compile Include="Models\TimeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Commands\AddNewContentCmd.cs" />
+    <Compile Include="ViewModels\Commands\DictationModeCmd.cs" />
+    <Compile Include="ViewModels\Commands\RelayCommand.cs" />
+    <Compile Include="ViewModels\Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="ViewModels\Converters\DateTimeToDateTimeOffsetConverter.cs" />
+    <Compile Include="ViewModels\Converters\DateTimeToStringConverter.cs" />
+    <Compile Include="ViewModels\Converters\DateTimeToTimeSpanToConverter.cs" />
+    <Compile Include="ViewModels\Converters\TimeSpanToStringConverter.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SpeechViewModel.cs" />
     <Compile Include="ViewModels\TimeViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\UC_DayPart_0.xaml.cs">
+      <DependentUpon>UC_DayPart_0.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsrControls\UC_Add-CreateTTS.xaml.cs">
+      <DependentUpon>UC_Add-CreateTTS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsrControls\UC_AddContentList.xaml.cs">
+      <DependentUpon>UC_AddContentList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsrControls\UC_AddCreateTTS.xaml.cs">
+      <DependentUpon>UC_AddCreateTTS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsrControls\UC_ADDFile.xaml.cs">
+      <DependentUpon>UC_ADDFile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsrControls\UC_ADD_AnyMedType_Part2.xaml.cs">
+      <DependentUpon>UC_ADD_AnyMedType_Part2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsrControls\UC_ADD_Any_Part2.xaml.cs">
+      <DependentUpon>UC_ADD_Any_Part2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsrControls\UC_ContentInfo.xaml.cs">
+      <DependentUpon>UC_ContentInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsrControls\UC_DrillDown_ContentInfo.xaml.cs">
+      <DependentUpon>UC_DrillDown_ContentInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsrControls\UC_Mood.xaml.cs">
+      <DependentUpon>UC_Mood.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsrControls\UC_PlayGroup.xaml.cs">
+      <DependentUpon>UC_PlayGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsrControls\UC_UserAccProfile.xaml.cs">
+      <DependentUpon>UC_UserAccProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsrControls\UC_UserProfile.xaml.cs">
+      <DependentUpon>UC_UserProfile.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -110,6 +166,62 @@
     <None Include="PRSapp_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\AV\PlayLibray\Audio\01-01- Honey, I m Good.mp3" />
+    <Content Include="Assets\AV\PlayLibray\Audio\BackInHighLife.mp3" />
+    <Content Include="Assets\AV\PlayLibray\Audio\FightSong.mp3" />
+    <Content Include="Assets\AV\PlayLibray\Audio\HeyThereDelilah.m4a" />
+    <Content Include="Assets\AV\PlayLibray\Audio\HoneyImGood.mp3" />
+    <Content Include="Assets\AV\PlayLibray\Audio\Issues.mp3" />
+    <Content Include="Assets\AV\PlayLibray\Audio\Jessie.mp3" />
+    <Content Include="Assets\AV\PlayLibray\Audio\Mother.mp3" />
+    <Content Include="Assets\AV\PlayLibray\Audio\Relax_SusanDavis.mp3" />
+    <Content Include="Assets\AV\PlayLibray\Audio\Thunder.m4a" />
+    <Content Include="Assets\AV\PlayLibray\Audio\Thunderstruck.mp3" />
+    <Content Include="Assets\AV\PlayLibray\Audio\TookAPillinIbiza.mp3" />
+    <Content Include="Assets\AV\PlayLibray\BackInHighLife.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\Mood\BackInHighLife.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\Mood\FightSong.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\Mood\HoneyImGood.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\Mood\Mother.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\Mood\Relax_SusanDavis.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\Mood\TookAPillinIbiza.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\Out\FightSong.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\Out\HoneyImGood.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\Out\Issues.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\Out\Jessie.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\Out\Mother.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\Out\Thunder.m4a" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\Out\TookAPillinIbiza.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\WorkOut\BackInHighLife.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\WorkOut\FightSong.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\WorkOut\HeyThereDelilah.m4a" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\WorkOut\HoneyImGood.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\WorkOut\Issues.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\WorkOut\Mother.mp3" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\WorkOut\Thunder.m4a" />
+    <Content Include="Assets\AV\PlayLibray\PlayLists\WorkOut\TookAPillinIbiza.mp3" />
+    <Content Include="Assets\AV\PlayLibray\Videos\FullMetJack_30s.WMV" />
+    <Content Include="Assets\Images\AdamPassProfile-01.png" />
+    <Content Include="Assets\Images\All-Three-01.png" />
+    <Content Include="Assets\Images\Camera-Icon-Black-01.png" />
+    <Content Include="Assets\Images\Camera-Icon-Wh-01.png" />
+    <Content Include="Assets\Images\Camera-Icon-Wh-Zoomed-01.png" />
+    <Content Include="Assets\Images\Mic-Icon-Bl-01.png" />
+    <Content Include="Assets\Images\Mic-Icon-Bl-03.png" />
+    <Content Include="Assets\Images\Mic-Icon-Colorful-01.png" />
+    <Content Include="Assets\Images\Mic-Icon-Wh-02.png" />
+    <Content Include="Assets\Images\Mic-Icon_wh-01.png" />
+    <Content Include="Assets\Images\Music-Icon-Wh-100x-04.png" />
+    <Content Include="Assets\Images\Music-Icon-WhDodgerBlue-01.png" />
+    <Content Include="Assets\Images\Play-Icon-Red-01.png" />
+    <Content Include="Assets\Images\PRS_Logo_Scale-100-70x70.png" />
+    <Content Include="Assets\Images\Video-Icon-bl-02.png" />
+    <Content Include="Assets\Images\Video-Icon-blueGray-01.png" />
+    <Content Include="Assets\Images\Video-Icon-DodgBlue-02.png" />
+    <Content Include="Assets\Images\Video-Icon-Orange-01.png" />
+    <Content Include="Assets\Images\Video-Icon-Wh-02.png" />
+    <Content Include="Assets\Images\Video-Icon-Wh-05.png" />
+    <Content Include="Assets\Images\Video-Play-Icon-DodgBlue-01.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -128,17 +240,65 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\UC_DayPart_0.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsrControls\UC_Add-CreateTTS.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsrControls\UC_AddContentList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsrControls\UC_AddCreateTTS.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsrControls\UC_ADDFile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsrControls\UC_ADD_AnyMedType_Part2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsrControls\UC_ADD_Any_Part2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsrControls\UC_ContentInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsrControls\UC_DrillDown_ContentInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsrControls\UC_Mood.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsrControls\UC_PlayGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsrControls\UC_UserAccProfile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsrControls\UC_UserProfile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.1.7</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\Commands\" />
-    <Folder Include="ViewModels\Converters\" />
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

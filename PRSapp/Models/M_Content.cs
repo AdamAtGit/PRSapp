@@ -1,80 +1,20 @@
-﻿using System;
-using System.ComponentModel;
-using Windows.ApplicationModel;
+﻿using Windows.UI.Xaml.Media.Imaging;
 
 namespace PRSapp.Models
 {
-    public class M_Content : INotifyPropertyChanged
+    public class M_Content
     {
-
-        #region OnPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(string propName)
+        public string ContentName;
+        public string ContentPlayTime;
+        public string ContentFileName;
+        //Adding props for list part 2,  Details/Content Info page
+        public string Notes;
+        public BitmapImage ProfilePicture; 
+        
+        public string ContentInfo()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+            return string.Format("Content info - Name is {0}, Play Time is {1}, and file Name is {2}",
+                                  ContentName, ContentPlayTime, ContentFileName);
         }
-        #endregion     
-
-        public M_Content()
-        {
-            if (DesignMode.DesignModeEnabled)
-            {               
-                Title = "942_DT";
-                Category = "SED IB";              
-            }
-            else
-            {
-                Title = "";
-                Category = "";
-            }
-        }
-
-        private string title;
-        public string Title
-        {
-            get => title;
-            set
-            {
-                title = value;
-                OnPropertyChanged("Title");
-                OnPropertyChanged("TitleAndDescription");
-            }
-        }
-
-        private string description;
-        public string Description
-        {
-            get => description;
-            set
-            {
-                description = value;
-                OnPropertyChanged("Description");
-                OnPropertyChanged("TitleAndDescription");
-            }
-        }
-
-        private string TitleAndDescription;
-        public string titleAndDescription
-        {
-            get { return Title + " - " + Description; }
-            set
-            {
-                titleAndDescription = value;
-                OnPropertyChanged("TitleAndDescription");
-            }
-
-        }
-
-        private string category;
-        public string Category
-        {
-            get => category;
-            set
-            {
-                category = value;
-                OnPropertyChanged("Category");
-            }
-        }
-  
     }
 }
